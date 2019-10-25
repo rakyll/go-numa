@@ -10,7 +10,7 @@ import "C"
 // IsAvailable returns true if NUMA is
 // available.
 func IsAvailable() bool {
-	return int(C.numa_available()) == 1
+	return int(C.numa_available()) != -1
 }
 
 func MaxNode() int {
