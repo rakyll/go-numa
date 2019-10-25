@@ -13,6 +13,8 @@ func IsAvailable() bool {
 	return int(C.numa_available()) != -1
 }
 
+// MaxNode returns the highest node number
+// available on this machine.
 func MaxNode() int {
 	return int(C.numa_max_node())
 }
