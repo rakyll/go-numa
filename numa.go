@@ -7,7 +7,9 @@ package numa
 // #include <numa.h>
 import "C"
 
-func IsNUMAAvailable() bool {
+// IsAvailable returns true if NUMA is
+// available.
+func IsAvailable() bool {
 	return int(C.numa_available()) == 1
 }
 
