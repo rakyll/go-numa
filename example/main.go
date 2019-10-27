@@ -2,6 +2,7 @@ package main
 
 import (
 	"log"
+	"runtime"
 
 	"github.com/rakyll/go-numa"
 )
@@ -11,7 +12,12 @@ func main() {
 		log.Fatalln("NUMA is not available on this machine.")
 	}
 
-	// Runs the current goroutine in node 0.
+	// Make sure the underlying OS thread
+	// doesn't change because NUMA can only
+	// lock the OS thread to a specific node.
+	runtime.LockOSThread()
+
+	// Runs the current goroutine always in node 0.
 	numa.SetPreferred(0)
 	// Do work...
 }
