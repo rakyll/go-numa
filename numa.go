@@ -35,3 +35,9 @@ func Preferred() int {
 func SetPreferred(node int) {
 	C.numa_set_preferred(C.int(node))
 }
+
+// SetLocalAlloc sets the allocation
+// to be made from the local memory.
+func SetLocalAlloc() {
+	C.numa_set_localalloc()
+}

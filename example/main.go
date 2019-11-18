@@ -23,5 +23,7 @@ func main() {
 
 	// Runs the current goroutine always in node 0.
 	numa.SetPreferred(0)
-	// Do work...
+	numa.SetLocalAlloc()
+
+	// Do work in this goroutine...
 }
